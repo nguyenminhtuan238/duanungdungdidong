@@ -4,16 +4,41 @@ import '../../models/product.dart';
 class ProductManager{
   final List<Product> _item =[
     Product(
-    title: "Red Shirt", 
-    description: "A red Shirt-it is pretty red!", 
-    price: 29.99, 
-    imageUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFB_KR5XK667rx63rJIemNmW7GN_ygRoglBk_TPoPM4yZVDGU2jwZtxr7jT9t5aDrVnQE&usqp=CAU ",
-    isFavorite:true,
+      id: 'p1',
+      title: 'Red Shirt',
+      description: 'A red shirt - it is pretty red!',
+      price: 29.99,
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+      isFavorite: true,
     ),
-     Product(title: "Trousers", 
-    description: "Trousers is pretty", 
-    price: 19.99, 
-    imageUrl: "https://cf.shopee.vn/file/f1998baeb976f9185e7ffd916c15175e")];
+    Product(
+      id: 'p2',
+      title: 'Trousers',
+      description: 'A nice pair of trousers.',
+      price: 59.99,
+      imageUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Trousers%2C_dress_%28AM_1960.022-8%29.jpg/512px-Trousers%2C_dress_%28AM_1960.022-8%29.jpg',
+    ),
+    Product(
+      id: 'p3',
+      title: 'Yellow Scarf',
+      description: 'Warm and cozy - exactly what you need for the winter.',
+      price: 19.99,
+      imageUrl:
+          'https://live.staticflickr.com/4043/4438260868_cc79b3369d_z.jpg',
+    ),
+    Product(
+      id: 'p4',
+      title: 'A Pan',
+      description: 'Prepare any meal you want.',
+      price: 49.99,
+      imageUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
+      isFavorite: true,
+    ),
+    
+    ];
   int get itemCount{
     return _item.length;
   }
