@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../models/product.dart';
 class UserProductListTile extends StatelessWidget {

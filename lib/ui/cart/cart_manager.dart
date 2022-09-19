@@ -20,8 +20,8 @@ class CartManager{
   }
   double get totalAmount {
     var total =0.0;
-    _item.forEach((key, CartItem) {
-      total += CartItem.price + CartItem.quantity;
+    _item.forEach((key, cartItem) {
+      total += cartItem.price * cartItem.quantity;
      });
      return total;
   }

@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 import '../../models/product.dart';
 class ProductManager{
   final List<Product> _item =[
@@ -47,5 +45,8 @@ class ProductManager{
   }
   List<Product> get favoriteItems{
     return _item.where((prodItem)=>prodItem.isFavorite).toList();
+  }
+  Product findById(String id){
+    return _item.firstWhere((prod) => prod.id == id);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/models/cart_item.dart';
 import 'cart_manager.dart';
 import 'cart_item_card.dart';
 class CartScreen extends StatelessWidget {

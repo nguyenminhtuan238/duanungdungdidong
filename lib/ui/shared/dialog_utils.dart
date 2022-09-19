@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-Future  <bool?> ShowConfirmDialog(BuildContext context,String message){
+Future<bool?> ShowConfirmDialog(BuildContext context,String message){
   return showDialog(
     context: context, 
     builder: (ctx)=> AlertDialog(
