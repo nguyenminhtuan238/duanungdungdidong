@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import '../../models/product.dart';
-class ProductManager{
+class ProductManager with ChangeNotifier{
   final List<Product> _item =[
     Product(
       id: 'p1',
@@ -48,5 +50,29 @@ class ProductManager{
   }
   Product findById(String id){
     return _item.firstWhere((prod) => prod.id == id);
+  }
+  void addProduct(Product product){
+    _item.add(
+      product.copyWith(
+        id: 'p${DateTime.now().toIso8601String()}',
+      ),
+    );
+    notifyListeners();
+  }
+  void updateProduct(Product product){
+    final index=_item.indexWhere((item) => item.id == product.id);
+    if(index>0){
+      _item[index]=product;
+      notifyListeners();
+    }
+  }
+  void toggleFavoriteStatus(Product product){
+    final saveStatus=product.isFavorite;
+    product.isFavorite=!saveStatus;
+  }
+  void deleteProduct(String id){
+    final index=_item.indexWhere((item) => item.id==id);
+    _item.removeAt(index);
+    notifyListeners();
   }
 }
