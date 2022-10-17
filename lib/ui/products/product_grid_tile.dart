@@ -1,9 +1,10 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:myshop/ui/cart/cart_manager.dart';
 import '../../models/product.dart';
 import 'product_detail_screen.dart';
-
+import 'package:provider/provider.dart';
 class ProductGridTile extends StatelessWidget {
   const ProductGridTile(
     this.product,{
@@ -62,9 +63,25 @@ class ProductGridTile extends StatelessWidget {
           Icons.shopping_cart,
         ),
         onPressed:(){
-          print('Add item to cart');
+         final cart=context.read<CartManager>();
+         cart.addItem(product);
+         ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              content: const Text(
+                'Item added to cart',
+              ),
+              duration: const Duration(seconds: 2),
+              action: SnackBarAction(
+                label: 'UNDO', 
+                onPressed: (){
+                  cart.removeSingleItem(product.id!);
+                },
+              ),
+            ),
+          );
         }, 
-        
         color: Theme.of(context).colorScheme.secondary,
       ),
       
